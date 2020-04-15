@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Stage, Layer, Image, Group } from 'react-konva';
+import { Stage, Layer, Image } from 'react-konva';
 import useImage from 'use-image';
+import Header from '../../containers/Header';
+
 import './index.css';
 
 const MainLayer = () => {
@@ -52,7 +54,7 @@ const App = () => {
 
   return (
     <>
-      <header>Image Scan Result</header>
+      <Header />
       <div className="imageHolder">
         <div className="images">
           <Stage

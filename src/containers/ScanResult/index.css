@@ -1,0 +1,9 @@
+.scan-result {
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.controls {
+  color: #fff;
+  cursor: pointer;
+}

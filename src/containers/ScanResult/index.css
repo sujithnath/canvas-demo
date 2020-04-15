@@ -1,11 +1,20 @@
 .scan-result {
-  background-color: #fff;
-  overflow: hidden;
+  background-color: #000;
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+  box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
 
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   border: 1px solid #eaeaea;
-  padding: 10px;
+  padding: 60px 20px;
+  grid-gap: 20px;
+}
+
+.info {
+  position: absolute;
+  top: -22px;
 }

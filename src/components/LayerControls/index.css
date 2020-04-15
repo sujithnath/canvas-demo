@@ -1,15 +1,26 @@
-.controls {
-  color: #000;
-}
 label {
   cursor: pointer;
+  color: #000;
   min-width: 110px;
-  display: inline-block;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 img {
   position: relative;
-  top: 14px;
   margin-right: 14px;
   border: 1px solid #eaeaea;
+}
+.controls {
+  padding: 16px;
+  border: 1px solid #eaeaea;
+}
+
+.controls h3 {
+  padding-bottom: 20px;
+}
+.mini-info {
+  font-size: 12px;
 }

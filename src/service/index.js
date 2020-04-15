@@ -28,6 +28,6 @@ export const fetchImageResponse = () => {
           title: 'Layer 3',
         },
       ]);
-    }, 3000);
+    }, 0);
   });
 };

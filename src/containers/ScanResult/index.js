@@ -57,6 +57,7 @@ const ScanResult = () => {
     <>
       <div className="container">
         <div className="scan-result">
+          <div className="info">Info: You can drag and zoom the image</div>
           <Stage
             width={950}
             height={500}
@@ -74,7 +75,9 @@ const ScanResult = () => {
             </Layer>
           </Stage>
         </div>
-        <LayerControls imageToggle={imageToggle} imageList={imageList} />
+        <div>
+          <LayerControls imageToggle={imageToggle} imageList={imageList} />
+        </div>
       </div>
     </>
   );

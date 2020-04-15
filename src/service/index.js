@@ -2,32 +2,25 @@
 export const fetchImageResponse = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve([
+      const images = [
         {
-          url: '/images/set-1/opg_demo_02.jpg',
+          url: "/images/set-1/opg_demo_02.jpg",
           id: 1,
           visible: true,
-          title: 'Main Image',
+          title: "Main Image",
         },
-        {
-          url: '/images/set-1/layer01.png',
-          id: 2,
-          visible: true,
-          title: 'Layer 1',
-        },
-        {
-          url: '/images/set-1/layer02.png',
-          id: 3,
-          visible: false,
-          title: 'Layer 2',
-        },
-        {
-          url: '/images/set-1/layer03.png',
-          id: 4,
-          visible: true,
-          title: 'Layer 3',
-        },
-      ]);
+      ];
+
+      for (let i = 1; i < 100; i++) {
+        images.push({
+          url: `/images/set-1/layer0${(i % 3) + 1}.png`,
+          id: i + 1,
+          visible: i % 5 !== 0,
+          title: `Layer ${i}`,
+        });
+      }
+
+      resolve(images);
     }, 0);
   });
 };

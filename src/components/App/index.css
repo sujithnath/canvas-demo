@@ -18,3 +18,8 @@ body {
   background-color: #fff;
   overflow: hidden;
 }
+header {
+  text-align: center;
+  padding: 12px;
+  font-weight: bold;
+}

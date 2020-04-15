@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Stage, Layer, Image } from 'react-konva';
+import { Stage, Layer, Image, Group } from 'react-konva';
 import useImage from 'use-image';
+import './index.css';
 
 const MainLayer = () => {
   const [image] = useImage('/images/set-1/opg_demo_02.jpg');
@@ -23,9 +24,9 @@ const Layer3 = () => {
 };
 
 const App = () => {
-  const [stageScale, setStageScale] = useState(1);
-  const [stageX, setStageX] = useState(20);
-  const [stageY, setStageY] = useState(20);
+  const [stageScale, setStageScale] = useState(0.4);
+  const [stageX, setStageX] = useState(1);
+  const [stageY, setStageY] = useState(1);
 
   const handleWheel = (e) => {
     e.evt.preventDefault();
@@ -48,33 +49,32 @@ const App = () => {
       -(mousePointTo.y - stage.getPointerPosition().y / newScale) * newScale
     );
   };
+
   return (
-    <div
-      style={{
-        background: '#000',
-        width: '100%',
-        height: '600px',
-        margin: '0 auto',
-      }}
-    >
-      <Stage
-        width={window.innerWidth}
-        height={600}
-        onWheel={handleWheel}
-        draggable={true}
-        scaleX={stageScale}
-        scaleY={stageScale}
-        x={stageX}
-        y={stageY}
-      >
-        <Layer>
-          <MainLayer />
-          <Layer1 />
-          <Layer2 />
-          <Layer3 />
-        </Layer>
-      </Stage>
-    </div>
+    <>
+      <header>Image Scan Result</header>
+      <div className="imageHolder">
+        <div className="images">
+          <Stage
+            width={950}
+            height={500}
+            onWheel={handleWheel}
+            draggable={true}
+            scaleX={stageScale}
+            scaleY={stageScale}
+            x={stageX}
+            y={stageY}
+          >
+            <Layer>
+              <MainLayer />
+              <Layer1 />
+              <Layer2 />
+              <Layer3 />
+            </Layer>
+          </Stage>
+        </div>
+      </div>
+    </>
   );
 };
 

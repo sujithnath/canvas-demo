@@ -4,12 +4,17 @@ body {
   overflow: hidden;
   background-color: #f0f0f0;
 }
-#buttons {
-  position: absolute;
-  left: 10px;
-  top: 0px;
+
+.imageHolder {
+  background: #000;
+  height: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-button {
-  margin-top: 10px;
-  display: block;
+
+.images {
+  background-color: #fff;
+  overflow: hidden;
 }

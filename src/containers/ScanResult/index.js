@@ -23,7 +23,7 @@ const ScanResult = () => {
 
   const imageToggle = (e) => {
     let imageCopy = [...imageList];
-    imageCopy.map((imageMeta, index) => {
+    imageCopy.forEach((imageMeta, index) => {
       if (imageMeta.id === Number(e.target.id)) {
         imageCopy[index] = { ...imageMeta, visible: !imageMeta.visible };
       }
@@ -34,7 +34,7 @@ const ScanResult = () => {
   const handleWheel = (e) => {
     e.evt.preventDefault();
 
-    const scaleBy = 1.02;
+    const scaleBy = 1.1;
     const stage = e.target.getStage();
     const oldScale = stage.scaleX();
 

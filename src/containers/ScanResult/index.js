@@ -1,40 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Stage, Layer, Image, Group } from 'react-konva';
-import useImage from 'use-image';
+import { Stage, Layer, Group } from 'react-konva';
+import { fetchImageResponse } from '../../service';
+import RenderImageLayers from '../../components/RenderImageLayers';
+import LayerControls from '../../components/LayerControls';
 
 import './index.css';
-
-const scanImages = [
-  {
-    url: '/images/set-1/opg_demo_02.jpg',
-    id: 1,
-    visible: true,
-    title: 'Main Image',
-  },
-  { url: '/images/set-1/layer01.png', id: 2, visible: true, title: 'Layer 1' },
-  { url: '/images/set-1/layer02.png', id: 3, visible: false, title: 'Layer 2' },
-  { url: '/images/set-1/layer03.png', id: 4, visible: true, title: 'Layer 3' },
-];
-
-const ImageRender = ({ imageUrl, visible }) => {
-  const [image] = useImage(imageUrl);
-  return <Image visible={visible} image={image} />;
-};
-
-const RenderImageLayers = ({ imageList }) =>
-  imageList.map(({ url, id, visible }) => (
-    <ImageRender key={id} visible={visible} id={id} imageUrl={url} />
-  ));
 
 const ScanResult = () => {
   const [stageScale, setStageScale] = useState(0.4);
   const [stageX, setStageX] = useState(1);
   const [stageY, setStageY] = useState(1);
-  const [imageList, setImageList] = useState(scanImages);
+  const [imageList, setImageList] = useState([]);
 
   useEffect(() => {
-    console.log(imageList);
-  }, [imageList]);
+    initFetchImageResponse();
+  }, []);
+
+  const initFetchImageResponse = async () => {
+    const response = await fetchImageResponse();
+    setImageList(response);
+  };
 
   const imageToggle = (e) => {
     let imageCopy = [...imageList];
@@ -89,22 +74,7 @@ const ScanResult = () => {
             </Layer>
           </Stage>
         </div>
-        <div className="controls" onClick={imageToggle}>
-          {imageList.map(({ visible, id, title, url }) => (
-            <div key={id}>
-              <input id={id} type="checkbox" checked={visible} />
-              {title}
-              <img
-                src={url}
-                width="60"
-                height="40"
-                border="1"
-                alt="text"
-                style={{ 'background-color': '#fff' }}
-              />
-            </div>
-          ))}
-        </div>
+        <LayerControls imageToggle={imageToggle} imageList={imageList} />
       </div>
     </>
   );

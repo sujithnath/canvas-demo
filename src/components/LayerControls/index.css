@@ -1,0 +1,15 @@
+.controls {
+  color: #000;
+}
+label {
+  cursor: pointer;
+  min-width: 110px;
+  display: inline-block;
+}
+
+img {
+  position: relative;
+  top: 14px;
+  margin-right: 14px;
+  border: 1px solid #eaeaea;
+}
